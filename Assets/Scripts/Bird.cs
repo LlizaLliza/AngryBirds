@@ -28,12 +28,6 @@ public class Bird : MonoBehaviour
         _state = BirdState.Idle;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
     private IEnumerator DestroyAfter(float second)
     {
         yield return new WaitForSeconds(second);
@@ -46,7 +40,7 @@ public class Bird : MonoBehaviour
             OnBirdDestroyed();
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    public virtual void OnCollisionEnter2D(Collision2D col)
     {
         _state = BirdState.HitSomething;
     }
